@@ -42,6 +42,7 @@
 
 
     function checkAll(bx) {
+        debugger
         //if (confirm("Do you want to update all ingredients?")) {
         var cbs = document.getElementsByTagName('input');
         for (var i = 0; i < cbs.length; i++) {
@@ -52,6 +53,7 @@
 
                 var ingredient = {};
                 ingredient.Id = row.find(".Id").find("span").html();
+                ingredient.Name = row.find(".Name").find("span").html();
                 ingredient.IsChecked = bx.checked;
 
                 $.ajax({
@@ -79,6 +81,7 @@
             var ingredient = {};
             ingredient.Id = row.find(".Id").find("span").html();
             ingredient.IsChecked = isSelected;
+            ingredient.Name = row.find(".Name").find("span").html();
             $.ajax({
                 type: "POST",
                 url: "/Checklist/UpdateIngredient",
